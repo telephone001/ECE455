@@ -1,6 +1,6 @@
-# include < iostream >
-# include <thread >
-# include <vector >
+# include <iostream>
+# include <thread>
+# include <vector>
 
 void hello (int id , int total ) {
         std :: cout << " Hello from thread " << id << " of " << total << "\n";
@@ -14,6 +14,6 @@ int main () {
                 threads . emplace_back ( hello , i , N ) ;
         
         for ( auto & t : threads ) t . join () ;
-        
+
         return 0;
 }

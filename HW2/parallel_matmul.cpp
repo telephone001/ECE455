@@ -1,8 +1,8 @@
-# include < iostream >
-# include <vector >
-# include <thread >
-# include < random >
-# include < chrono >
+# include <iostream>
+# include <vector>
+# include <thread>
+# include <random>
+# include <chrono>
 
 //function that each thread executes
 //takes the A and B matrices and modifies the C matrix.
@@ -51,7 +51,7 @@ int main () {
 		                         std :: cref ( A ), std :: cref ( B ), std :: ref ( C ),
 		                         N, rs, re ) ;
 	}
-        
+
 	for ( auto & th : threads ) th . join () ;
 	auto end_time = std :: chrono :: high_resolution_clock :: now () ;
 	std :: cout << " Parallel multiplication took "
