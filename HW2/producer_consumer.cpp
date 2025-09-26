@@ -4,6 +4,11 @@
 # include <mutex>
 # include <condition_variable>
 
+//Task. Implement one producer and one consumer sharing a bounded queue. The producer pushes
+//integers 0..99. The consumer pops and processes them. Use a std::condition_variable; the
+//producer waits when the queue is full, and the consumer waits when empty. Cleanly terminate.
+
+
 
 constexpr int MAX_ITEMS = 10;
 std :: queue <int > q ;
@@ -42,6 +47,7 @@ void producer () {
 }
 
 
+/// @brief 
 void consumer () {
 	while ( true ) {
 		std :: unique_lock < std :: mutex > lk ( m ) ;
@@ -54,7 +60,7 @@ void consumer () {
 		q . pop () ;
 		lk . unlock () ;
 		std :: cout << " Consumed : " << item << "\n";
-		cv . notify_all () ;
+		cv.notify_all();
 	}
 }
 
